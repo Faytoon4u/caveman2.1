@@ -11,10 +11,11 @@ GameObject:
   - component: {fileID: 3050455662019634172}
   - component: {fileID: 5194373468415240785}
   - component: {fileID: 460678452762371631}
-  - component: {fileID: -7884202393478636611}
+  - component: {fileID: 5849972455486215393}
+  - component: {fileID: 5364464608905315427}
   m_Layer: 0
   m_Name: Cactus_Small_Triple
-  m_TagString: Obstacle
+  m_TagString: Collectible
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -28,7 +29,7 @@ Transform:
   m_GameObject: {fileID: 8417437419137089434}
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalPosition: {x: 8.38, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -107,7 +108,7 @@ BoxCollider:
   serializedVersion: 3
   m_Size: {x: 1.0625, y: 0.7291667, z: 0.2}
   m_Center: {x: 0, y: -0.1354167, z: 0}
---- !u!114 &-7884202393478636611
+--- !u!114 &5849972455486215393
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -116,6 +117,19 @@ MonoBehaviour:
   m_GameObject: {fileID: 8417437419137089434}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: d4aa01bef04456d489a93b8adc7fec01, type: 3}
+  m_Script: {fileID: 11500000, guid: 4dbeaf73119f0ad4eaece3f0ddb2a3c5, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  scoreValue: 1
+--- !u!114 &5364464608905315427
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8417437419137089434}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 621d62c9fe9fabf49b7df6db74e8a3c7, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 

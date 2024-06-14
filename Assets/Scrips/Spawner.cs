@@ -32,9 +32,8 @@ public class Spawner : MonoBehaviour
         {
             if (spawnChance < obj.spawnChance)
             {
-                GameObject obstacle = Instantiate(obj.prefab);
-                obstacle.transform.position += transform.position;
-                break;// 5 procent change will span noting
+                GameObject spawnedObject = Instantiate(obj.prefab, transform.position, Quaternion.identity);
+                break; // Ensure only one object spawns at a time
             }
 
             spawnChance -= obj.spawnChance;
@@ -42,5 +41,4 @@ public class Spawner : MonoBehaviour
 
         Invoke(nameof(Spawn), Random.Range(minSpawnRate, maxSpawnRate));
     }
-
 }

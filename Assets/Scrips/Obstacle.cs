@@ -2,6 +2,7 @@ using UnityEngine;
 
 public class Obstacle : MonoBehaviour
 {
+
     private float leftEdge;
 
     private void Start()
@@ -14,6 +15,7 @@ public class Obstacle : MonoBehaviour
         transform.position += GameManager.Instance.gameSpeed * Time.deltaTime * Vector3.left;
 
         if (transform.position.x < leftEdge) {
+
             Destroy(gameObject);
         }
     }
