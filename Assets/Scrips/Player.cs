@@ -288,7 +288,7 @@ public class Player : MonoBehaviour
     {
         if (audioSource == null)
         {
-            Debug.LogError("AudioSource component not found on the GameObject.");
+          //  Debug.LogError("AudioSource component not found on the GameObject.");
         }
     }
 
@@ -296,7 +296,7 @@ public class Player : MonoBehaviour
     {
         if (clip == null)
         {
-            Debug.LogError($"{clipName} AudioClip is not assigned.");
+           // Debug.LogError($"{clipName} AudioClip is not assigned.");
         }
     }
 
@@ -315,7 +315,7 @@ public class Player : MonoBehaviour
             {
                 direction = Vector3.up * jumpForce;
                 PlaySound(jump, "Jump");
-                Debug.Log("JUMP JUMP JUMP JUMP");
+               // Debug.Log("JUMP JUMP JUMP JUMP");
             }
         }
     }
@@ -337,17 +337,17 @@ public class Player : MonoBehaviour
     {
         if (audioSource == null)
         {
-            Debug.LogError("AudioSource component is missing.");
+            //Debug.LogError("AudioSource component is missing.");
             return;
         }
 
         if (clip == null)
         {
-            Debug.LogError($"{clipName} AudioClip is not assigned.");
+          //  Debug.LogError($"{clipName} AudioClip is not assigned.");
             return;
         }
 
-        Debug.Log($"Playing {clipName} sound");
+       // Debug.Log($"Playing {clipName} sound");
         audioSource.PlayOneShot(clip);
     }
 
