@@ -116,6 +116,8 @@ public class GameManager : MonoBehaviour
         UpdateGoldText();
         UpdateTotalGoldText();
         SaveTotalGold();
+        SaveGoldScore();
+        CheckUnlockLevel();
     }
 
     private void UpdateScoreText()
@@ -153,9 +155,24 @@ public class GameManager : MonoBehaviour
         PlayerPrefs.Save();
     }
 
+    private void SaveGoldScore()
+    {
+        PlayerPrefs.SetInt("goldScore", goldScore);
+        PlayerPrefs.Save();
+    }
+
     private void LoadTotalGold()
     {
         totalGoldScore = PlayerPrefs.GetInt("totalGoldScore", 0);
         UpdateTotalGoldText();
+    }
+
+    private void CheckUnlockLevel()
+    {
+        if (goldScore >= 100)
+        {
+            PlayerPrefs.SetInt("levelUnlocked", 1);
+            PlayerPrefs.Save();
+        }
     }
 }

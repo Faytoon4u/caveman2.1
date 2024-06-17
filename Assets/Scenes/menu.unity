@@ -757,7 +757,7 @@ Camera:
   m_Enabled: 1
   serializedVersion: 2
   m_ClearFlags: 1
-  m_BackGroundColor: {r: 0.4113207, g: 0.4113207, b: 0.4113207, a: 0}
+  m_BackGroundColor: {r: 0.5773585, g: 0.5740904, b: 0.5740904, a: 0}
   m_projectionMatrixMode: 1
   m_GateFitMode: 2
   m_FOVAxisMode: 0
@@ -824,6 +824,7 @@ GameObject:
   - component: {fileID: 896985051}
   - component: {fileID: 896985050}
   - component: {fileID: 896985049}
+  - component: {fileID: 896985052}
   m_Layer: 0
   m_Name: EventSystem
   m_TagString: Untagged
@@ -881,6 +882,19 @@ Transform:
   m_Children: []
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &896985052
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 896985048}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: a26a3d39d95e0284892886cbc824392a, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  unlockLevelButton: {fileID: 2033460237}
 --- !u!1 &951950831
 GameObject:
   m_ObjectHideFlags: 0
