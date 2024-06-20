@@ -32,7 +32,8 @@ public class Spawner : MonoBehaviour
         {
             if (spawnChance < obj.spawnChance)
             {
-                GameObject spawnedObject = Instantiate(obj.prefab, transform.position, Quaternion.identity);
+                GameObject spawnedObject = Instantiate(obj.prefab);
+                spawnedObject.transform.position += transform.position;
                 break; // Ensure only one object spawns at a time
             }
 

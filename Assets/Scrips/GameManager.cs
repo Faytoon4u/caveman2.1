@@ -1,8 +1,9 @@
 using UnityEngine;
+using UnityEngine;
 using UnityEngine.UI;
 using TMPro;
+using UnityEngine.SceneManagement;
 
-[DefaultExecutionOrder(-1)]
 public class GameManager : MonoBehaviour
 {
     public static GameManager Instance { get; private set; }
@@ -18,6 +19,7 @@ public class GameManager : MonoBehaviour
     [SerializeField] private TextMeshProUGUI goldText;
     [SerializeField] private TextMeshProUGUI totalGoldText;
     [SerializeField] private Button retryButton;
+    [SerializeField] private Button deleteScoreButton;
 
     private Player player;
     private Spawner spawner;
@@ -54,6 +56,7 @@ public class GameManager : MonoBehaviour
         spawner = FindObjectOfType<Spawner>();
 
         LoadTotalGold();
+        LoadHighScore();
         NewGame();
     }
 
@@ -70,11 +73,12 @@ public class GameManager : MonoBehaviour
         goldScore = 0;
         gameSpeed = initialGameSpeed;
         enabled = true;
-        player.newgame();
+        player.NewGame();
         spawner.gameObject.SetActive(true);
         gameOverText.gameObject.SetActive(false);
         retryButton.gameObject.SetActive(false);
         newHighScoreText.gameObject.SetActive(false);
+        //deleteScoreButton.gameObject.SetActive(false); // Hide delete score button during gameplay
 
         UpdateHiscore();
         UpdateScoreText();
@@ -90,6 +94,7 @@ public class GameManager : MonoBehaviour
         spawner.gameObject.SetActive(false);
         gameOverText.gameObject.SetActive(true);
         retryButton.gameObject.SetActive(true);
+        //deleteScoreButton.gameObject.SetActive(true); // Show delete score button during game over
 
         UpdateHiscore();
         SaveTotalGold();
@@ -100,7 +105,14 @@ public class GameManager : MonoBehaviour
         gameSpeed += gameSpeedIncrease * Time.deltaTime;
         score += gameSpeed * Time.deltaTime;
         UpdateScoreText();
-        player.changeSpeed(gameSpeed);
+        player.ChangeSpeed(gameSpeed);
+
+        // Check if score is 1000 or more to increase gravity
+        if (score >= 1000 && Physics.gravity.y != -19.62f)
+        {
+            Physics.gravity = new Vector3(0, -19.62f, 0); // Set a stronger gravity
+            Debug.Log("Gravity increased!");
+        }
     }
 
     public void AddScore(int value)
@@ -167,12 +179,26 @@ public class GameManager : MonoBehaviour
         UpdateTotalGoldText();
     }
 
+    private void LoadHighScore()
+    {
+        float hiscore = PlayerPrefs.GetFloat("hiscore", 0);
+        hiscoreText.text = Mathf.FloorToInt(hiscore).ToString("D5");
+    }
+
     private void CheckUnlockLevel()
     {
-        if (goldScore >= 100)
+        if (goldScore >= 6)
         {
             PlayerPrefs.SetInt("levelUnlocked", 1);
             PlayerPrefs.Save();
+            SceneManager.LoadScene("dog");
         }
+    }
+
+    public void DeleteHighScore()
+    {
+        Debug.Log("DeleteHighScore button pressed"); // Debug log to confirm button press
+        PlayerPrefs.DeleteKey("hiscore"); // Only delete the high score
+        LoadHighScore(); // Update the high score text to reflect the deletion
     }
 }

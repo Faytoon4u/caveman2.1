@@ -14,7 +14,7 @@ AnimatorStateMachine:
     m_Position: {x: 330, y: -60, z: 0}
   - serializedVersion: 1
     m_State: {fileID: 3799332535726427316}
-    m_Position: {x: 280, y: 130, z: 0}
+    m_Position: {x: 310, y: 230, z: 0}
   m_ChildStateMachines: []
   m_AnyStateTransitions: []
   m_EntryTransitions: []
@@ -32,7 +32,7 @@ AnimatorState:
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_Name: dead_animation2_0
+  m_Name: dead_mine
   m_Speed: 1
   m_CycleOffset: 0
   m_Transitions:
@@ -46,7 +46,7 @@ AnimatorState:
   m_MirrorParameterActive: 0
   m_CycleOffsetParameterActive: 0
   m_TimeParameterActive: 0
-  m_Motion: {fileID: 7400000, guid: 1d10313dd2063f747b8c91237fc6c6e5, type: 2}
+  m_Motion: {fileID: 7400000, guid: 765c925fbf382ab4fb92904e0f37ef29, type: 2}
   m_Tag: 
   m_SpeedParameter: 
   m_MirrorParameter: 
@@ -58,7 +58,7 @@ AnimatorController:
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_Name: Player
+  m_Name: mine_worker
   serializedVersion: 5
   m_AnimatorParameters:
   - m_Name: IsDead
@@ -66,13 +66,13 @@ AnimatorController:
     m_DefaultFloat: 0
     m_DefaultInt: 0
     m_DefaultBool: 0
-    m_Controller: {fileID: 9100000}
+    m_Controller: {fileID: 0}
   - m_Name: playerSpeed
     m_Type: 1
     m_DefaultFloat: 0
     m_DefaultInt: 0
     m_DefaultBool: 0
-    m_Controller: {fileID: 9100000}
+    m_Controller: {fileID: 0}
   m_AnimatorLayers:
   - serializedVersion: 5
     m_Name: Base Layer
@@ -93,7 +93,7 @@ AnimatorState:
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_Name: walk_player
+  m_Name: walk_mine
   m_Speed: 0.5
   m_CycleOffset: 0
   m_Transitions:
@@ -107,7 +107,7 @@ AnimatorState:
   m_MirrorParameterActive: 0
   m_CycleOffsetParameterActive: 0
   m_TimeParameterActive: 0
-  m_Motion: {fileID: 7400000, guid: bc20333b98e02974f9cb337ba239d971, type: 2}
+  m_Motion: {fileID: 7400000, guid: 0d95722a0439b6443a4c03179f8e8d69, type: 2}
   m_Tag: 
   m_SpeedParameter: playerSpeed
   m_MirrorParameter: 

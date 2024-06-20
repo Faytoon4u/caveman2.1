@@ -272,14 +272,14 @@ public class Player : MonoBehaviour
         }
     }
 
-    public void newgame()
+    public void NewGame()
     {
         isAlive = true;
         animator.SetBool("IsDead", false);
         animator.SetFloat("playerSpeed", 1);
     }
 
-    public void changeSpeed(float speed)
+    public void ChangeSpeed(float speed)
     {
         animator.SetFloat("playerSpeed", speed / 5);
     }
@@ -288,7 +288,7 @@ public class Player : MonoBehaviour
     {
         if (audioSource == null)
         {
-          //  Debug.LogError("AudioSource component not found on the GameObject.");
+            // Handle error or log message
         }
     }
 
@@ -296,13 +296,21 @@ public class Player : MonoBehaviour
     {
         if (clip == null)
         {
-           // Debug.LogError($"{clipName} AudioClip is not assigned.");
+            // Handle error or log message
         }
     }
 
     private void ApplyGravity()
     {
-        direction += gravity * Time.deltaTime * Vector3.down;
+        // Check if the score is 1500 or more to apply increased gravity
+        if (GameManager.Instance.Score >= 1500 && Physics.gravity.y != -19.62f)
+        {
+            direction += Physics.gravity * Time.deltaTime;
+        }
+        else
+        {
+            direction += gravity * Time.deltaTime * Vector3.down;
+        }
     }
 
     private void HandleJump()
@@ -315,7 +323,6 @@ public class Player : MonoBehaviour
             {
                 direction = Vector3.up * jumpForce;
                 PlaySound(jump, "Jump");
-               // Debug.Log("JUMP JUMP JUMP JUMP");
             }
         }
     }
@@ -337,17 +344,16 @@ public class Player : MonoBehaviour
     {
         if (audioSource == null)
         {
-            //Debug.LogError("AudioSource component is missing.");
+            // Handle error or log message
             return;
         }
 
         if (clip == null)
         {
-          //  Debug.LogError($"{clipName} AudioClip is not assigned.");
+            // Handle error or log message
             return;
         }
 
-       // Debug.Log($"Playing {clipName} sound");
         audioSource.PlayOneShot(clip);
     }
 
@@ -357,5 +363,6 @@ public class Player : MonoBehaviour
         Destroy(collectible);
     }
 }
+
 
 
